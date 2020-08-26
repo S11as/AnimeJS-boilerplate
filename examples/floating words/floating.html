@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../anime-master/lib/anime.min.js"></script>
+</head>
+<style>
+    .wrapper{
+        padding: 20px;
+        height: 641px;
+        max-width: 520px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url("bg.svg");
+    }
+    .letter{
+        display: inline-block;
+    }
+</style>
+<body>
+    <div class="wrapper">
+        <div class="word">HTML/CSS</div>
+        <div class="word">VanillaJS</div>
+        <div class="word">React</div>
+        <div class="word">Vue</div>
+        <div class="word">Sass</div>
+        <div class="word">Webpack</div>
+    </div>
+</body>
+<script>
+    const words = document.getElementsByClassName("word")
+    for(let i=0;i<words.length; ++i){
+        words[i].innerHTML = words[i].textContent.replace(/\S/g,"<span class='letter'>$&</span>" )
+    }
+    anime({
+        targets:".word .letter",
+        translateY: [10, 0],
+        duration: 750,
+        delay: (el, i) => 50 * i
+    })
+</script>
+</html>

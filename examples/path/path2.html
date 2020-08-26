@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../anime-master/lib/anime.min.js"></script>
+
+</head>
+<style>
+    .block {
+        width: 15px;
+        height: 15px;
+        background: blue;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        border-radius: 50%;
+    }
+</style>
+<body>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     viewBox="0 0 300 300" style="enable-background:new 0 0 300 300;" xml:space="preserve" width="250">
+<style type="text/css" >
+	.st0{enable-background:new    ;}
+    .st1{clip-path:url(#SVGID_4_);}
+    .st2{fill:#FFFFFF;}
+    .st3{clip-path:url(#SVGID_6_);}
+</style>
+    <g>
+	<g>
+		<g class="st0">
+			<defs>
+				<polygon id="SVGID_3_" class="st0" points="18,205.7 18,102.5 277,99.8 277,203 				"/>
+			</defs>
+            <clipPath id="SVGID_4_">
+				<use xlink:href="#SVGID_3_"  style="overflow:visible;"/>
+			</clipPath>
+            <g class="st1" id="big">
+				<g>
+					<g>
+						<g>
+							<path class="st2" d="M147.5,102.7C77.2,103.5,20,126.5,20,154.1c0,27.6,57.2,49.4,127.5,48.7C217.8,202,275,179,275,151.4
+								S217.8,102,147.5,102.7"/>
+                            <path d="M147.5,202.8C77.2,203.5,20,181.6,20,154.1c0-27.6,57.2-50.6,127.5-51.3C217.8,102,275,123.9,275,151.4
+								S217.8,202,147.5,202.8 M147.5,101.2C76.1,101.9,18,125.6,18,154.1c0,28.4,58.1,51,129.5,50.3S277,179.9,277,151.4
+								C277,123,218.9,100.4,147.5,101.2"/>
+						</g>
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+</g>
+    <g>
+	<g>
+		<g class="st0">
+			<defs>
+				<polygon id="SVGID_5_" class="st0" points="52.8,190.7 52.8,117.2 241.6,115.3 241.6,188.8 				"/>
+			</defs>
+            <clipPath id="SVGID_6_">
+				<use xlink:href="#SVGID_5_"  style="overflow:visible;"/>
+			</clipPath>
+            <g class="st3">
+				<g>
+					<g>
+						<g>
+							<path class="st2" d="M147.2,117.8c-51,0.5-92.4,16.7-92.4,36.1c0,19.4,41.4,34.8,92.4,34.2c51-0.5,92.4-16.7,92.4-36.1
+								C239.6,132.7,198.1,117.3,147.2,117.8"/>
+                            <path d="M147.2,188.2c-51,0.5-92.4-14.8-92.4-34.2c0-19.4,41.5-35.6,92.4-36.1c51-0.5,92.4,14.8,92.4,34.2
+								C239.6,171.5,198.1,187.7,147.2,188.2 M147.2,116.2c-52.1,0.5-94.4,17.5-94.4,37.7c0,20.3,42.3,36.3,94.4,35.8
+								s94.4-17.5,94.4-37.7C241.6,131.8,199.3,115.7,147.2,116.2"/>
+						</g>
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>
+<div class="block" id="small-b"></div>
+
+</body>
+
+<script>
+    let path = anime.path("#big path");
+    anime({
+        targets: ".block",
+        translateX: path('x'),
+        translateY: path("y"),
+        easing: "linear",
+        duration: 5000,
+        loop: true,
+    });
+
+</script>
+</html>

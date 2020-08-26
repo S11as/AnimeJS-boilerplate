@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../anime-master/lib/anime.min.js"></script>
+</head>
+<style>
+    .text-wrapper{
+        padding: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        flex-direction: column;
+    }
+</style>
+<body>
+<div class="wrapper">
+    <div class="text-wrapper">
+        <h1 class="text">
+            Hi, I'm Kirill,
+            Front-end and Back-end Developer
+        </h1>
+    </div>
+    <div class="text-wrapper">
+        <h2 class="quote">
+            “Digital design is like painting, except the paint never dries.”
+        </h2>
+    </div>
+</div>
+</body>
+<script>
+    // корневой элемент -> его высота от начала -> сопоставляем с текущей высотой, проигрываем анимацию
+    const text = document.getElementsByClassName("text")[0];
+    const timeline = anime.timeline({
+        // autoplay: false,
+    })
+    timeline.add({
+        targets:".text",
+        opacity: [0,1],
+        translateY: [text.offsetHeight, 0],
+        easing:'easeOutQuad',
+        duration: 700,
+    });
+    timeline.add({
+        targets: ".quote",
+        easing:'easeOutQuad',
+        opacity: [0, 1],
+        duration: 1000,
+    });
+</script>
+</html>

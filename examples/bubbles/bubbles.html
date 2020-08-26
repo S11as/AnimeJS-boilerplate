@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="../../anime-master/lib/anime.min.js"></script>
+
+<style>
+    .block {
+        background: #ED5E5C;
+        border-radius: 50%;
+        position: absolute;
+        width: 100px;
+        height: 100px;
+    }
+
+    #app {
+        width: 200px;
+        height: 200px;
+        background: gray;
+    }
+</style>
+<body style="margin-top: 500px">
+<div id="app">
+</div>
+
+</body>
+<script>
+    function random(min, max) {
+        let rand = min + Math.random() * (max + 1 - min);
+        return Math.floor(rand);
+    }
+
+    const duration = 3000;
+    let timeLine = anime.timeline({
+        duration: duration,
+        complete: () => {
+            const bubbles = document.getElementsByClassName("block");
+            for (let i = 0; i < bubbles.length; i++) {
+                bubbles[i].style.transform = "translateY(0px)";
+                if(i !== bubbles.length - 1) {
+                    bubbles[i].style.opacity = "0";
+                    bubbles[i].style.left = random(0, 180) + "px"
+                }else{
+                    bubbles[i].style.display = "none";
+                }
+            }
+            timeLine.restart();
+        }
+    });
+
+    function createCircle(i) {
+        const app = document.getElementById("app");
+        const circle = document.createElement("div");
+        const dimension = random(40, 70) + "px";
+        circle.style.height = dimension;
+        circle.style.width = dimension;
+        circle.style.left = random(0, 180) + "px"
+        circle.style.opacity = "0";
+        circle.classList.add("block");
+        app.appendChild(circle);
+        timeLine.add({
+            begin: function () {
+                anime({
+                    targets: circle,
+                    translateY: -350,
+                    keyframes: [
+                        {
+                            opacity: 1,
+                            duration: 750,
+                        },
+                        {
+                            opacity: 0,
+                        },
+                    ],
+                    easing: 'linear',
+                });
+            },
+        }, i === 0 ? 0 : '-=2600')
+    }
+
+    for (let i = 0; i < 10; ++i) {
+        createCircle(i)
+    }
+</script>
+</html>
